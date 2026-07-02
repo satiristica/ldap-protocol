@@ -3,7 +3,7 @@ services:
     image: osixia/openldap:1.5.0
     container_name: ldap_study
     environment:
-      LDAP_ORGANIZATION: "test"
+      LDAP_ORGANISATION: "test"
       LDAP_DOMAIN: "tester.local"
       LDAP_ADMIN_PASSWORD: "sudo"
     ports:
@@ -11,3 +11,18 @@ services:
     volumes:
       - ./seed.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/seed.ldif
     command: --copy-service
+
+  postgres:
+    image: postgres:16
+    container_name: postgres_study
+    environment:
+      POSTGRES_DB: employee_directory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sudo
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
