@@ -1,5 +1,0 @@
-ldap3
-psycopg
-python-dotenv
-rich
-textual
