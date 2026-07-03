@@ -1,8 +1,5 @@
-from src.database import create_tables
+from src.tui import EmployeeDirectoryApp
 
-def main():
-    create_tables()
-    print("Database tables created")
 
 if __name__ == "__main__":
-    main()
+    EmployeeDirectoryApp().run()
